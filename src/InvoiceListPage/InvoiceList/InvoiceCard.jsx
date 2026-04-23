@@ -13,7 +13,7 @@ const InvoiceCard = ({ filter, invoices }) => {
 
   return (
       <>
-      <div className='flex flex-wrap  w-full justify-between gap-4 p-4 overflow-y-auto max-h-80 sm:overflow-hidden  sm:max-h-full sm:hidden'> 
+      <div className='flex flex-wrap  w-full justify-between gap-4 p-4 overflow-y-auto max-h-110 sm:overflow-hidden  sm:max-h-full sm:hidden'> 
           {filteredInvoices.map((invoice) => (
               <div onClick={() => navigate(`/invoice/${invoice.id}`)} key={invoice.id} className="bg-slate-200 dark:bg-slate-800 w-full p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col gap-3 ">
 
@@ -65,7 +65,7 @@ const InvoiceCard = ({ filter, invoices }) => {
 
       </div>
       
-      <div className='hidden sm:flex flex-wrap   w-full justify-between gap-4 p-4 overflow-y-auto max-h-80 sm:overflow-hidden  sm:max-h-full  '> 
+      <div className='hidden sm:flex flex-wrap  w-full justify-between gap-4 p-4 overflow-y-auto max-h-80 sm:overflow-hidden  sm:max-h-full  '> 
           {filteredInvoices.map((invoice) => (
               <div onClick={() => navigate(`/invoice/${invoice.id}`)} key={invoice.id} className='flex dark:bg-slate-800  flex-wrap gap-4 justify-between items-center cursor-pointer w-full p-4  bg-slate-200 rounded-lg mb-4 hover:shadow-lg transition-shadow duration-300 hover:border-2  dark:hover:bg-slate-800'>
                       <h1 className='text-white font-bold'>{invoice.id}</h1>

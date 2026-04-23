@@ -27,13 +27,14 @@ const InvoiceEdit = () => {
         }));
     };
 
-    const handleSave = () => {
+    const handleSave = (e) => {
+        e.preventDefault();
         console.log(formData); // 🔥 THIS IS YOUR UPDATED DATA
         navigate(`/invoice/${id}`);
     };
 
     return (
-        <div className="p-4 sm:p-6 w-full mx-auto bg-slate-800 text-white  sm:max-w-5xl space-y-6 shadow-lg">
+        <form onSubmit={handleSave} className="p-4 sm:p-6 w-full mx-auto bg-slate-800 text-white  sm:max-w-5xl space-y-6 shadow-lg">
             <p className="text-xl font-bold">Edit {invoice.id}</p>
 
             <BillFrom formData={formData} handleChange={handleChange} />
@@ -49,7 +50,7 @@ const InvoiceEdit = () => {
                     Save Invoice
                 </button>
             </div>
-        </div>
+        </form>
     )
 }
 

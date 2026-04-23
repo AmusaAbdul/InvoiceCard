@@ -19,7 +19,7 @@ const BillFrom = ({ formData, handleChange }) => {
                   Bill From
               </h2>
 
-              <div className="flex flex-col gap-2">
+              <form className="flex flex-col gap-2">
                   <label htmlFor="street" className="text-sm text-slate-300">
                       Street Address
                   </label>
@@ -27,6 +27,7 @@ const BillFrom = ({ formData, handleChange }) => {
                   <input
                       id="street"
                       type="text"
+                      required
                       onChange={(e) => handleChange('street', e.target.value)}
                       placeholder={invoice.address}
                       className="w-full bg-slate-700 text-white placeholder:text-slate-400 
@@ -38,21 +39,21 @@ const BillFrom = ({ formData, handleChange }) => {
                   <div className="flex flex-col justify-between text-sm  sm:flex-row mt-4 gap-4">
                       <div className="flex flex-col items-start gap-2">
                           <label htmlFor="city">City</label>
-                          <input className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
+                          <input required className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
                           placeholder={invoice.city} onChange={(e) => handleChange('city', e.target.value)} />
                       </div>
                       <div className="flex flex-col items-start gap-2">
                           <label htmlFor="zip">Zip Code</label>
-                          <input className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
+                          <input required className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
                           placeholder={invoice.zip} onChange={(e) => handleChange('zip', e.target.value)} />
                       </div>
                       <div className="flex flex-col items-start gap-2">
                           <label htmlFor="country">Country</label>
-                          <input className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
+                          <input required className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" 
                           placeholder={invoice.country} onChange={(e) => handleChange('country', e.target.value)} />
                       </div>
                   </div>
-              </div>
+              </form>
           </div>
   )
 }

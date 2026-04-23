@@ -15,7 +15,7 @@ const ItemList = () => {
 
 
   return (
-     <div className="space-y-4 mt-13">
+     <form className="space-y-4 mt-13">
                 <h2 className="text-slate-300 font-semibold text-sm uppercase tracking-wide">
                     Item List
                 </h2>
@@ -23,17 +23,19 @@ const ItemList = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-sm">
                     <div className="flex flex-col items-start gap-2">
                         <label className="text-sm text-slate-300" htmlFor="itemName1">Item Name</label>
-                        <input placeholder={invoice.itemName1} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="itemName1" />
-                        <input placeholder={invoice.itemName2} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="itemName2" />
+                        <input required placeholder={invoice.itemName1} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="itemName1" />
+                        <input required placeholder={invoice.itemName2} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="itemName2" />
                     </div>
 
                     <div className="flex flex-col items-start gap-2">
                         <label className="text-sm text-slate-300" htmlFor="quantity1">Quantity</label>
-                        <input placeholder={invoice.quantity1} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="number" id="quantity1" />
+                        <input required  placeholder={invoice.quantity1} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="number" id="quantity1" />
+                    <input required placeholder={invoice.itemName1} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="itemName1" />
+
                     </div>
                     <div className="flex flex-col items-start gap-2">
                         <label className="text-sm text-slate-300" htmlFor="price1">Price</label>
-                        <input placeholder={invoice.price} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="number" id="price1" />
+                        <input required placeholder={invoice.price} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="number" id="price1" />
                     </div>
                     <div className="flex justify-between items-center gap-2">
                         <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition">
@@ -69,7 +71,7 @@ const ItemList = () => {
 
                 </div>
 
-            </div>
+            </form>
   )
 }
 
