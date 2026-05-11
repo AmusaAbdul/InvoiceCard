@@ -56,6 +56,15 @@ const InvoiceEdit = ({invoices,  onSave}) => {
 
     return (
         <form onSubmit={handleSave} className="p-4 sm:p-6 w-full mx-auto bg-slate-800 text-white  sm:max-w-5xl space-y-6 shadow-lg">
+            <div className="flex items-center justify-between mb-6">
+                <button
+                    onClick={() => navigate(`/invoice/${invoices.id}`)}
+                    className="text-sm font-semibold text-white bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded"
+                >
+                    ← Go Back
+                </button>
+            </div>
+            
             <p className="text-xl font-bold">Edit {formData.id}</p>
 
             <div className="space-y-4">
