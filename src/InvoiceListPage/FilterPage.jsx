@@ -1,15 +1,18 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-const FilterPage = ({ filter, setFilter }) => {
+const FilterPage = ({ filter, setFilter, noOfInvoices }) => {
     const navigate = useNavigate();
 
     return (
         <div className='flex flex-col gap-4 p-4 sm:flex-row sm:justify-between sm:items-center'>
 
-            <h1 className='text-xl font-bold sm:text-2xl'>
-                Invoices
-            </h1>
+           <div>
+                <h1 className='text-xl font-bold sm:text-2xl'>
+                    Invoices
+                </h1>
+                <p>There are {noOfInvoices} total invoices</p>
+           </div>
 
             <div className='flex items-center justify-between gap-3 sm:justify-end'>
 

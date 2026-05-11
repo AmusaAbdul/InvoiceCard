@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from "react-router-dom";
 import invoices from "../../../Invoice"
 
-const InvoiceTerms = () => {
+const InvoiceTerms = ({formData, handleChange}) => {
 
     const { id } = useParams();
 
@@ -14,15 +14,15 @@ const InvoiceTerms = () => {
 
 
   return (
-      <form className="space-y-4 mt-13">
+      <div className="space-y-4 mt-13">
           <div className="flex flex-col gap-2">
               <label className="text-sm text-slate-300" htmlFor="Date">Invoice Date</label>
-              <input required placeholder={invoice.date} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="date" id="Date" />
+              <input required name="date" value={formData.date} onChange={handleChange} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="date" id="Date" />
           </div>
 
           <div className="flex flex-col gap-2">
               <label className="text-sm text-slate-300" htmlFor="Description">Project Description</label>
-              <input required placeholder={invoice.content} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="Description" />
+              <input required name="content" value={formData.content} onChange={handleChange} className="bg-slate-700 w-full text-white placeholder:text-slate-400 border border-slate-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" type="text" id="Description" />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -34,7 +34,7 @@ const InvoiceTerms = () => {
                   <option value="Net 90">Net 90 Days</option>
               </select>
           </div>
-      </form>
+      </div>
   )
 }
 

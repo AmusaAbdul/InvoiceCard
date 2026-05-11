@@ -1,16 +1,15 @@
 import { useParams, useNavigate} from "react-router-dom";
-import invoices from '../../Invoice'
-import StatusInvoice from "./subInvoicePage/StatusInvoice";
+// import StatusInvoice from "./subInvoicePage/StatusInvoice";
 import InvoiceFeatures from "./subInvoicePage/InvoiceFeatures";
 import DetailsList from "./subInvoicePage/DetailsList";
 
 
 
-const InvoiceDetail = ({ invoices, markAsPaid, deleteInvoice }) => {
+const InvoiceDetail = ({newInvoice, invoices, markAsPaid, deleteInvoice }) => {
 
     const { id } = useParams();
 
-    const invoice = invoices.find((inv) => inv.id === id);
+    const invoice = invoices.find(inv => inv.id?.toString().trim() === id?.toString().trim());
 
     if (!invoice) {
         return <h2>Invoice not found</h2>;
@@ -24,6 +23,8 @@ const InvoiceDetail = ({ invoices, markAsPaid, deleteInvoice }) => {
         }
     };
 
+
+   
     const navigate = useNavigate();
     return (
         <div className="p-4 sm:p-6 max-w-5xl mx-auto">
@@ -71,19 +72,19 @@ const InvoiceDetail = ({ invoices, markAsPaid, deleteInvoice }) => {
                                 ? "bg-green-500 text-white"
                                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
                             }`}
-                    >
+                    >       
                         Mark as Paid
                     </button>
                 </div>
 
             </div>
-            <InvoiceFeatures />
-            <DetailsList />
+            <InvoiceFeatures invoices={invoices}/>
+            <DetailsList invoices={invoices}/>
             
             <div className="bg-black rounded-b-xl mt-0 p-4 flex justify-between items-center">
                 <span className="text-gray-400 text-sm">Amount Due</span>
                 <h2 className="text-xl text-white font-bold">
-                    {invoice.currency} {(invoice.quantity1 * invoice.price + invoice.quantity2 * invoice.price).toFixed(2)}
+                    {invoice.currency} {(invoice.quantity1 * invoice.price1 + invoice.quantity2 * invoice.price2).toFixed(2)}
                 </h2>
             </div>
             

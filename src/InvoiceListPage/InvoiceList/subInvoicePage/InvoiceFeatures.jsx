@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
-import invoices from "../../../Invoice"
+// import invoices from "../../../Invoice"
 
-const InvoiceFeatures = () => {
+const InvoiceFeatures = ({invoices}) => {
 
     const { id } = useParams();
 
