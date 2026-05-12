@@ -5,8 +5,7 @@ import InvoiceDetail from "./InvoiceListPage/InvoiceList/InvoiceDetails";
 import Invoices from "./Invoice"
 import InvoiceEdit from './InvoiceListPage/InvoiceList/InvoiceEdit'
 import InvoiceNew from './InvoiceListPage/InvoiceList/InvoiceNew'
-
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -27,16 +26,26 @@ function App() {
     quantity2: "",
     price1: "",
     price2: ""
-    
-})
+  })
 
   function handleNewInvoice(e) {
     const {name, value} = e.target
     setNewInvoice(prev => ({...prev, [name] : value}))
   }
 
-  const [invoices, setInvoices] = useState(Invoices);
-  const [editedInvoice, setEditedInvoice] = useState(null)
+  
+
+const [invoices, setInvoices] = useState(() => {
+  const stored = localStorage.getItem("invoices");
+  return stored ? JSON.parse(stored) : [];
+});
+
+
+useEffect(() => {
+  localStorage.setItem("invoices", JSON.stringify(invoices));
+}, [invoices]);
+
+
 
   const handleUpdatedInvoice = (updatedInvoice) => {
     const updatedList = invoices.map((inv) =>

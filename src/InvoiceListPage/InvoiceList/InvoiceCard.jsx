@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import Invoice from '../../Invoice'
 
-const InvoiceCard = ({ filter, invoices, filteredInvoices }) => {
+const InvoiceCard = ({filteredInvoices }) => {
     const navigate = useNavigate();
 
 

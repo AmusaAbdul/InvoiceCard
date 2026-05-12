@@ -16,7 +16,7 @@ const FilterPage = ({ filter, setFilter, noOfInvoices }) => {
 
             <div className='flex items-center justify-between gap-3 sm:justify-end'>
 
-                <select
+                <select id="filter"
                     className='outline-none border border-slate-400 dark:border-slate-600 p-2 rounded-md text-sm sm:text-base'
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}

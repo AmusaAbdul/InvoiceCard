@@ -29,7 +29,10 @@ const InvoiceEdit = ({invoices,  onSave}) => {
     });  
 
     useEffect(() => {
-        const found = invoices.find((inv) => inv.id === id);    
+        const found = invoices.find(inv => inv.id?.toString().trim() === id?.toString().trim());
+         if (found) {
+    setFormData(found);
+  }
         setFormData(found);
     }, [id, invoices]);
 
@@ -37,6 +40,7 @@ const InvoiceEdit = ({invoices,  onSave}) => {
         return <h2>Loading...</h2>;
     }
 
+    
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormData((prev) => ({
@@ -52,10 +56,15 @@ const InvoiceEdit = ({invoices,  onSave}) => {
 
     };
 
-    
+    const cancelEdit = () => {
+        setFormData(invoices)
+        navigate(-1)
+    }
 
+// console.log("param id:", id);
+// console.log("invoice ids:", invoices.map(inv => inv.id));
     return (
-        <form onSubmit={handleSave} className="p-4 sm:p-6 w-full mx-auto bg-slate-800 text-white  sm:max-w-5xl space-y-6 shadow-lg">
+        <form id="edit" className="p-4 sm:p-6 w-full mx-auto bg-slate-800 text-white  sm:max-w-5xl space-y-6 shadow-lg">
             <div className="flex items-center justify-between mb-6">
                 <button
                     onClick={() => navigate(`/invoice/${invoices.id}`)}
@@ -114,10 +123,10 @@ const InvoiceEdit = ({invoices,  onSave}) => {
             <ItemList formData={formData} handleChange={handleChange} />
 
             <div className="flex justify-end items-center gap-4">
-                <button className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition">
+                <button onClick={cancelEdit} className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition">
                     Cancel
                 </button>
-                <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                <button onClick={handleSave} type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                     Save Invoice
                 </button>
             </div>

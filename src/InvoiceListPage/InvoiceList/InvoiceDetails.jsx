@@ -5,7 +5,7 @@ import DetailsList from "./subInvoicePage/DetailsList";
 
 
 
-const InvoiceDetail = ({newInvoice, invoices, markAsPaid, deleteInvoice }) => {
+const InvoiceDetail = ({ invoices, markAsPaid, deleteInvoice }) => {
 
     const { id } = useParams();
 
@@ -14,6 +14,7 @@ const InvoiceDetail = ({newInvoice, invoices, markAsPaid, deleteInvoice }) => {
     if (!invoice) {
         return <h2>Invoice not found</h2>;
     }
+
 
     const handleDelete = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this invoice?");
