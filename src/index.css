@@ -1,10 +1,54 @@
 @import "tailwindcss";
+button {
+    cursor: pointer;
+}
+input {
+    outline: none;
+    padding: 2px;
+}
 body {
-    color: black;
-    background-color: #cbd5e1;
+ --tw-bg-opacity: 1;
+ color: rgb(30 64 175 / var(--tw-bg-opacity)) /* #1e40af */;
 }
 
-body.dark {
-    background: #121212;
-    color: white;
+.BillFrom {
+ --tw-border-opacity: 1;
+ border-color: rgb(30 64 175 / var(--tw-border-opacity)) /* #60a5fa */;
+ border-width: 2px;
+  color: rgb(30 64 175 / var(--tw-bg-opacity)) /* #1e40af */;
+
+}
+
+.BillTo {
+    --tw-border-opacity: 1;
+    border-color: white /* #60a5fa */;
+    border-width: 2px;
+color: white;
+}
+.itemSpan {
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (max-width: 520px) {
+    .itemSpan {
+        width: 100%;
+    }
+    .detailCol {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .detailRight {
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .hideItem {
+        display: none;
+    }
+}
+@media (min-width: 521px) {
+    .largeHide {
+        display: none;
+    }
 }
