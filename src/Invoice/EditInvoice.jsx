@@ -34,7 +34,7 @@ const EditInvoice = ({ invoice, setInvoice, editInvoice, setEditInvoice, handleE
     return (
         <form action="" className="sm:max-w-[50%]">
             <button onClick={() => navigate(`/invoice/${editInvoice.id}`)} className="shadow-sm shadow-blue-800 p-2 m-4">Go back</button>
-            <h1 className="text-xl font-bold p-4">Edit Invoice </h1>
+            <h1 className="text-xl font-bold p-4">Edit #{editInvoice.id} </h1>
             <BillFrom invoice={invoice} editInvoice={editInvoice} setEditInvoice={setEditInvoice} handleEditInvoice={handleEditInvoice} />
             <BillTo invoice={invoice} editInvoice={editInvoice} setEditInvoice={setEditInvoice} handleEditInvoice={handleEditInvoice} />
             <IssueDate invoice={invoice} editInvoice={editInvoice} setEditInvoice={setEditInvoice} handleEditInvoice={handleEditInvoice} />
