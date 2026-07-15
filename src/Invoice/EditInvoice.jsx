@@ -13,7 +13,8 @@ const EditInvoice = ({ invoice, setInvoice, editInvoice, setEditInvoice, handleE
         const found = invoice.find(inv => inv.id === id)
         if (found) {
             setEditInvoice(found)
-        } setEditInvoice(found)
+            setItems(found.items)
+        } 
     }, [id, invoice])
 
     const updateInvoice = (updateList) => {
@@ -22,12 +23,14 @@ const EditInvoice = ({ invoice, setInvoice, editInvoice, setEditInvoice, handleE
     }
     const cancelEdit = (e) => {
         e.preventDefault()
-        setEditInvoice(invoice)
         navigate(`/invoice/${id}`)
     }
     const handleSaveChanges = (e) => {
         e.preventDefault()
-        updateInvoice(editInvoice)
+        const updated = {
+            ...editInvoice, items: items
+        }
+        updateInvoice(updated)
         navigate(`/invoice/${id}`)
     }
 
