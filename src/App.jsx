@@ -39,10 +39,10 @@ function App() {
     { id: crypto.randomUUID(), item: "", qty: 0, price: 0, total: 0 }
     ])
   }
-  const deleteItem = (index) => {
+  const deleteItem = (id) => {
     const confirmDeleteItem = window.confirm("Are you sure")
     if (confirmDeleteItem) {
-      setItems(items.filter(item => item.id !== index))
+      setItems(items.filter(item => item.id !== id))
     }
   }
   const [newInvoice, setNewInvoice] = useState({
