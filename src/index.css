@@ -30,7 +30,9 @@ color: white;
     flex-direction: column;
 
 }
-
+.amountDiv {
+    border-radius: 0px 0px 10px 10px;
+}
 @media (max-width: 520px) {
     .itemSpan {
         width: 100%;

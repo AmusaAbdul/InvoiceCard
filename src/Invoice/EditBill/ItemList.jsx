@@ -5,7 +5,10 @@ const ItemList = ({ deleteItem, editInvoice, setEditInvoice, addItem }) => {
 
         setEditInvoice({ ...editInvoice, items: updatedItems })
     }
-
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'EUR'
+    });
     return (
         <div className="flex flex-col gap-3 bg-blue-800 p-4 text-white">
             <div className="flex flex-col gap-3">
