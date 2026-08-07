@@ -6,7 +6,7 @@ const ItemTotal = ({ findInvoice }) => {
 
     const total = findInvoice?.items?.reduce(
         (sum, i) => sum + (i.qty * i.price), 0
-    )
+    );
 
 
     return (
